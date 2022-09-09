@@ -1,0 +1,7 @@
+.hover-pop {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.16);
+}
+
+.hover-pop:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+}

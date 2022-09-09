@@ -1,12 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="overview m-4 bg-dark rounded text-white">
-        <h2 class="m-3 text-center text-white pt-1">UPCOMING FESTIVALS:</h2>
-          <a class="text-decoration-none" routerLink="/festival/"><festival></festival></a>
-          <festival></festival>
-          <festival></festival>
-          <festival></festival>
+      <div class="overview m-4 bg-transparent rounded">
+        <h2 class="m-3 text-center pt-1 text-white">UPCOMING FESTIVALS:</h2>
+          <a *ngFor="let festival of festivals" class="text-decoration-none" [routerLink]="['festival', festival.name]">
+            <festival [festivalData]="festival"></festival>
+          </a>
       </div>
     </div>
   </div>

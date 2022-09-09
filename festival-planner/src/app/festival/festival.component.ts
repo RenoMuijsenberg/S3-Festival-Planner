@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Festival} from "../../interfaces/festival.interface.";
 
 @Component({
   selector: 'festival',
   templateUrl: './festival.component.html',
   styleUrls: ['./festival.component.css']
 })
-export class FestivalComponent implements OnInit {
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class FestivalComponent {
+  @Input() festivalData: any;
 }
