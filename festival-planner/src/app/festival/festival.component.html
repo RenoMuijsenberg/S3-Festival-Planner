@@ -1,17 +1,17 @@
 <div class="festival p-3">
   <div class="card text-black hover-pop">
     <div class="card-body">
-      <div class="festival-information d-flex justify-content-between">
-        <div class="basic-information">
-          <h5 class="card-title">{{festivalData.name}}</h5>
-          <p class="m-0">€{{festivalData.price}}</p>
-        </div>
-        <div class="festival-date text-center">
-          <b>
+      <div class="festival-information d-flex justify-content-between align-items-center">
+        <div class="festival-date text-center min-width">
             <p class="m-0">Saterday</p>
             <p class="m-0">17.00 - 20.00</p>
             <p class="m-0">{{festivalData.date}}</p>
-          </b>
+        </div>
+        <div class="title min-width text-center">
+          <h5 class="card-title m-0">{{festivalData.name}}</h5>
+        </div>
+        <div class="basic-information min-width text-center">
+          <p class="m-0">€{{festivalData.price}}</p>
         </div>
       </div>
     </div>

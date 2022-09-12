@@ -3,6 +3,11 @@
     <div class="col-12">
       <div class="overview m-4 bg-transparent rounded">
         <h2 class="m-3 text-center pt-1 text-white">UPCOMING FESTIVALS:</h2>
+          <div class="overview-header d-flex justify-content-between text-white mx-4">
+            <p class="m-0">Date:</p>
+            <p class="m-0">Name:</p>
+            <p class="m-0">Price:</p>
+          </div>
           <a *ngFor="let festival of festivals" class="text-decoration-none" [routerLink]="['festival', festival.name]">
             <festival [festivalData]="festival"></festival>
           </a>
