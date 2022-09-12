@@ -1,12 +1,12 @@
 version: '3'
 services:
-  festival-planner:
+  angular-ui:
     build:
-      context: ./festival-planner
-      dockerfile: Dockerfile-dev
+      context: ./festival-planner 
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
-    container_name: festival-planner
+      - '4200:4200'
+    container_name: angular-ui
     volumes:
-       - ./festival-planner:/usr/src/app/festival-planner
-       - /usr/src/app/festival-planner/node_modules
+      - ./festival-planner:/usr/src/app/festival-planner
+      - /usr/src/app/festival-planner/node_modules
