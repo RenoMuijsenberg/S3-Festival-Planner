@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Festival} from "../../interfaces/festival.interface.";
 import {HttpClient } from '@angular/common/http'
 
 @Component({
@@ -10,17 +9,15 @@ import {HttpClient } from '@angular/common/http'
 export class FestivalOverviewComponent {
   constructor(private http: HttpClient) {}
 
-  readonly ROOT_FESTIVAL_SERVICE_URL = "http://host.docker.internal:5000"
+  readonly ROOT_FESTIVAL_SERVICE_URL = "http://localhost:5104/";
 
   festivals: any;
 
   getFestivals() {
-    this.festivals = this.http.get(this.ROOT_FESTIVAL_SERVICE_URL + "/api/festival/festivals")
+    this.festivals = this.http.get(this.ROOT_FESTIVAL_SERVICE_URL + "api/festival/festivals")
   }
 
   ngOnInit() {
     this.getFestivals();
-
-    console.log(this.festivals)
   }
 }
