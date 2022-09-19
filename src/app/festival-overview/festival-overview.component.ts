@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Festival} from "../../interfaces/festival.interface.";
+import {HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'festival-overview',
@@ -7,10 +8,19 @@ import {Festival} from "../../interfaces/festival.interface.";
   styleUrls: ['./festival-overview.component.css']
 })
 export class FestivalOverviewComponent {
-  festivals: Festival[] = [
-    {name: "Hard CVLTR", date: "20-10-2022", timeFrame: "17.00-00.00", price: 20.00},
-    {name: "Rebellion", date: "30-12-2022", timeFrame: "13.00-00.00", price: 50.00},
-    {name: "Test", date: "30-12-2022", timeFrame: "13.00-00.00", price: 50.00},
-    {name: "Test 2", date: "30-12-2022", timeFrame: "13.00-00.00", price: 50.00},
-  ];
+  constructor(private http: HttpClient) {}
+
+  readonly ROOT_FESTIVAL_SERVICE_URL = "http://host.docker.internal:5000"
+
+  festivals: any;
+
+  getFestivals() {
+    this.festivals = this.http.get(this.ROOT_FESTIVAL_SERVICE_URL + "/api/festival/festivals")
+  }
+
+  ngOnInit() {
+    this.getFestivals();
+
+    console.log(this.festivals)
+  }
 }

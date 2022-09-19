@@ -8,8 +8,9 @@
             <p class="m-0">Name:</p>
             <p class="m-0">Price:</p>
           </div>
-          <a *ngFor="let festival of festivals" class="text-decoration-none" [routerLink]="['festival', festival.name]">
-            <festival [festivalData]="festival"></festival>
+          <a *ngFor="let festival of festivals | async" class="text-decoration-none">
+            {{festival | json}}
+<!--            <festival [festivalData]="festival"></festival>-->
           </a>
       </div>
     </div>
