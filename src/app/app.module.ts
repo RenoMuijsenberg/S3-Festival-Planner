@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FestivalOverviewComponent } from './festival-overview/festival-overview.component';
 import { FestivalComponent } from './festival/festival.component';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: "", component: FestivalOverviewComponent},
       {path: "**", component: NotFoundComponent}
