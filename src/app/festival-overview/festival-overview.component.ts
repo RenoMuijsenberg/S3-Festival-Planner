@@ -9,7 +9,7 @@ import {HttpClient } from '@angular/common/http'
 export class FestivalOverviewComponent {
   constructor(private http: HttpClient) {}
 
-  readonly ROOT_FESTIVAL_SERVICE_URL = "http://localhost:5104/";
+  readonly ROOT_FESTIVAL_SERVICE_URL = "http://localhost:5127/";
 
   festivals: any;
 

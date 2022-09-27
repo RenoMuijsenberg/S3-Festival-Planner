@@ -8,6 +8,7 @@ import { FestivalComponent } from './festival/festival.component';
 import { RouterModule } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from "@angular/common/http";
+import { FestivalDetailComponent } from './festival-detail/festival-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { HttpClientModule } from "@angular/common/http";
     NavbarComponent,
     FestivalOverviewComponent,
     FestivalComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FestivalDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: "", component: FestivalOverviewComponent},
+      {path: "festival/:name", component: FestivalDetailComponent},
       {path: "**", component: NotFoundComponent}
     ])
   ],

@@ -8,9 +8,9 @@
             <p class="m-0">Name:</p>
             <p class="m-0">Price:</p>
           </div>
-          <a *ngFor="let festival of festivals | async" class="text-decoration-none">
+          <div *ngFor="let festival of festivals | async" class="text-decoration-none">
             <festival [festivalData]="festival"></festival>
-          </a>
+          </div>
       </div>
     </div>
   </div>

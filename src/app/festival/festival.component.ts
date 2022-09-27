@@ -10,6 +10,6 @@ export class FestivalComponent {
   @Input() festivalData: any;
 
   ngOnInit() {
-   console.log(this.festivalData)
+    
   }
 }
