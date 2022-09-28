@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient } from '@angular/common/http'
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'festival-overview',
@@ -8,13 +9,11 @@ import {HttpClient } from '@angular/common/http'
 })
 export class FestivalOverviewComponent {
   constructor(private http: HttpClient) {}
-
-  readonly ROOT_FESTIVAL_SERVICE_URL = "http://localhost:5127/";
-
+  
   festivals: any;
 
   getFestivals() {
-    this.festivals = this.http.get(this.ROOT_FESTIVAL_SERVICE_URL + "api/festival/festivals")
+    this.festivals = this.http.get(environment.baseUrl + "api/festival/festivals")
   }
 
   ngOnInit() {
