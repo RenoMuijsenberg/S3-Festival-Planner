@@ -26,7 +26,7 @@ import { FestivalDetailComponent } from './festival-detail/festival-detail.compo
       {path: "", component: FestivalOverviewComponent},
       {path: "festival/:name", component: FestivalDetailComponent},
       {path: "**", component: NotFoundComponent}
-    ])
+    ]),
   ],
   providers: [
   ],

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="important-information d-flex justify-content-between">
                     <h1>{{ festival.festivalName }}</h1>
-                    <h2>€{{ festival.festivalPrice }}</h2>
+                    <h2>{{ festival.festivalPrice }}</h2>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
                 <h2 class="fw-normal fs-5">{{festival.festivalDate}}</h2>
             </div>
             <div class="col-12 col-md-4 text-md-end">
-                <h2 class="fw-normal fs-5"></h2>
+                <h2 class="fw-normal fs-5">{{festival.festivalDay}}</h2>
             </div>
         </div>
         <hr>
@@ -29,13 +29,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <h3 class="fw-normal fs-5">Location:</h3>
-                <p>No location known yet</p>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-12">
-                <h3 class="fw-normal fs-5">More info:</h3>
-                <a href="http://place-puppy.com/900x900">https://test.com</a>
+                <a target="_blank" href="https://maps.google.com/maps/search/{{festival.festivalLocation}}">{{festival.festivalLocation}}</a>
             </div>
         </div>
     </div>
