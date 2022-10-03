@@ -10,12 +10,30 @@
   min-width: 75px;
 }
 
+.festival-date {
+  min-width: 7em;
+}
+
 @media screen and (max-width: 768px) {
   .festival-date {
     border-right: 1px solid black;
     padding-right: 1em;
     font-size: 0.75em;
   }
-    
+
+  .festival-information {
+    justify-content: flex-start!important;
+  }
+
+  .festival-title {
+    font-size: 1em;
+    padding: 1em;
+  }
   
+  .price-block {
+    display: none;
+  }
+  
+
+
 }

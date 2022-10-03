@@ -6,7 +6,9 @@
           <div class="overview-header d-flex justify-content-between text-white mx-4">
             <p class="m-0">Date:</p>
             <p class="m-0">Name:</p>
-            <p class="m-0">Price:</p>
+            <div>
+              <p class="m-0 price-header">Price:</p>
+            </div>
           </div>
           <div *ngFor="let festival of festivals | async" class="text-decoration-none">
             <festival [festivalData]="festival"></festival>
