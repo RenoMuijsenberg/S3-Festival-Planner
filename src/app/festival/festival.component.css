@@ -9,3 +9,13 @@
 .min-width {
   min-width: 75px;
 }
+
+@media screen and (max-width: 768px) {
+  .festival-date {
+    border-right: 1px solid black;
+    padding-right: 1em;
+    font-size: 0.75em;
+  }
+    
+  
+}
