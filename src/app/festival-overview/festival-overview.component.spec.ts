@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FestivalOverviewComponent } from './festival-overview.component';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('FestivalOverviewComponent', () => {
   let component: FestivalOverviewComponent;
