@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Festival} from "../../interfaces/festival.interface.";
+import {Festival} from "../../interfaces/festival.interface";
 
 @Component({
   selector: 'festival',
@@ -7,9 +7,5 @@ import {Festival} from "../../interfaces/festival.interface.";
   styleUrls: ['./festival.component.css']
 })
 export class FestivalComponent {
-  @Input() festivalData: any;
-
-  ngOnInit() {
-    
-  }
+  @Input() festival!: Festival;
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-import {environment} from "../../environments/environment";
 import {FestivalService} from "../../services/festival.service";
+
 
 @Component({
   selector: 'app-festival-detail',
@@ -17,7 +16,7 @@ export class FestivalDetailComponent implements OnInit {
 
   getFestival() {
     this.festivalName = this.route.snapshot.paramMap.get("name");
-    this.festival = this.service.GetSpecificFestival(this.festivalName);
+    this.festival = this.service.getSpecificFestival(this.festivalName);
     this.festival.subscribe((x: any) => this.festival = x);
   }
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FestivalService} from "../../services/festival.service";
+
 
 
 @Component({
@@ -13,7 +14,7 @@ export class FestivalOverviewComponent {
   festivals: any;
 
   getFestivals() {
-    this.festivals = this.service.GetFestivals()
+    this.festivals = this.service.getFestivals();
   }
 
   ngOnInit() {
