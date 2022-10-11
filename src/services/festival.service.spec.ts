@@ -22,7 +22,7 @@ describe('FestivalService', () => {
 
     httpClientSpy.get.and.returnValue(of(expectedFestivals));
 
-    festivalService.GetFestivals().subscribe({
+    festivalService.getFestivals().subscribe({
       next: festival => {
         expect(festival)
             .withContext('expected festivals')
@@ -41,7 +41,7 @@ describe('FestivalService', () => {
 
     httpClientSpy.get.and.returnValue(of(expectedFestivals));
 
-    festivalService.GetSpecificFestival("Rebellion").subscribe({
+    festivalService.getSpecificFestival("Rebellion").subscribe({
       next: festival => {
         expect(festival)
             .withContext('expected festival')

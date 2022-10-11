@@ -8,11 +8,11 @@ import {environment} from "../environments/environment";
 export class FestivalService {
   constructor(private http: HttpClient) {}
   
-  GetFestivals(): Observable<Festival[]> {
+  getFestivals(): Observable<Festival[]> {
     return this.http.get<Festival[]>(environment.baseUrl + "api/festival/festivals");
   }
   
-  GetSpecificFestival(festivalName: string): Observable<Festival> {
+  getSpecificFestival(festivalName: string): Observable<Festival> {
     return this.http.get<Festival>(environment.baseUrl + "api/festival/festivals/" + festivalName);
   }
 }

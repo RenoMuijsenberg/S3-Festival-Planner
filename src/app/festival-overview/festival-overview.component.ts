@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FestivalService} from "../../services/festival.service";
+import {Festival} from "../../interfaces/festival.interface.";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -10,10 +12,10 @@ import {FestivalService} from "../../services/festival.service";
 export class FestivalOverviewComponent {
   constructor(private service: FestivalService) {}
   
-  festivals: any;
+  festivals!: Observable<Festival[]>;
 
   getFestivals() {
-    this.festivals = this.service.GetFestivals()
+    this.festivals = this.service.getFestivals();
   }
 
   ngOnInit() {

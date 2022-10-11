@@ -17,7 +17,7 @@ export class FestivalDetailComponent implements OnInit {
 
   getFestival() {
     this.festivalName = this.route.snapshot.paramMap.get("name");
-    this.festival = this.service.GetSpecificFestival(this.festivalName);
+    this.festival = this.service.getSpecificFestival(this.festivalName);
     this.festival.subscribe((x: any) => this.festival = x);
   }
 
