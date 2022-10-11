@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Festival} from "../interfaces/festival.interface.";
+import {Festival} from "../interfaces/festival.interface";
 import {environment} from "../environments/environment";
 
 @Injectable({providedIn: 'root'})

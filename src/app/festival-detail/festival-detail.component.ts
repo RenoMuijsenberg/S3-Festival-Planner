@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-import {environment} from "../../environments/environment";
 import {FestivalService} from "../../services/festival.service";
+
 
 @Component({
   selector: 'app-festival-detail',

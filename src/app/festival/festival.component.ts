@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Festival} from "../../interfaces/festival.interface.";
+import {Festival} from "../../interfaces/festival.interface";
 
 @Component({
   selector: 'festival',
