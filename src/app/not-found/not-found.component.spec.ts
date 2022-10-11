@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NotFoundComponent } from './not-found.component';
 
-fdescribe('NotFoundComponent', () => {
+describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
   
   beforeEach(() => {
