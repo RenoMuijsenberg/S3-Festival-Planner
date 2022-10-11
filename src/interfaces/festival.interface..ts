@@ -1,6 +1,6 @@
 export interface Festival {
   Id: string;
-  FestivalName: number;
+  FestivalName: string;
   FestivalTimeFrame: string;
   FestivalDay: string;
   FestivalDate: string;
