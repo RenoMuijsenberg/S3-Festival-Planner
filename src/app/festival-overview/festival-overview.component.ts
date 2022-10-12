@@ -1,14 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FestivalService} from "../../services/festival.service";
 
 
 
 @Component({
-  selector: 'festival-overview',
+  selector: 'app-festival-overview',
   templateUrl: './festival-overview.component.html',
   styleUrls: ['./festival-overview.component.css']
 })
-export class FestivalOverviewComponent {
+export class FestivalOverviewComponent implements OnInit {
   constructor(private service: FestivalService) {}
   
   festivals: any;
