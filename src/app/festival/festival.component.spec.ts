@@ -15,7 +15,7 @@ describe('FestivalComponent', () => {
   });
 
   it('should have festival data',  () => {
-    component.festival = {Id: "id1", FestivalName: "Rebellion", FestivalTimeFrame: "17.00-00.00", FestivalDay: "Saterday", FestivalDate: "20-10-2020", FestivalAge: "17+", FestivalPrice: "20.00", FestivalLocation: "Aarbeistraat", FestivalOrder: 0};
+    component.festival = {id: "id1", festivalName: "Rebellion", festivalTimeFrame: "17.00-00.00", festivalDay: "Saterday", festivalDate: "20-10-2020", festivalAge: "17+", festivalPrice: "20.00", festivalLocation: "Aarbeistraat", festivalOrder: 0};
     expect(component.festival).not.toBeNull();
   });
 });
