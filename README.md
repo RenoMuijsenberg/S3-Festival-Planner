@@ -1,3 +1,7 @@
+[![Build And Test](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/main.yaml/badge.svg)](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/main.yaml)
+[![Push Image To DockerHub](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/docker-image.yaml/badge.svg)](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/docker-image.yaml)
+[![SonarCloud Quality Scan](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/sonar-cloud.yaml/badge.svg)](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/sonar-cloud.yaml)
+
 ![01-startup-series-dribbble](https://user-images.githubusercontent.com/43666923/191464472-29613f1a-6a0e-4acf-8420-798d98cbb5ea.gif)
 
 # FestivalPlanner

@@ -1,11 +1,11 @@
-FROM node:latest
+# Stage 1: Compile and Build angular codebase
+FROM node:latest as build
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
+RUN npm install
+RUN npm run build
 
-WORKDIR /usr/src/app/festival-planner-angular
-
-COPY package*.json ./
-
-RUN npm install -g @angular/cli@14.2.1 @angular-devkit/build-angular@14.2.1 && npm install
-
-EXPOSE 4200
-
-CMD ng serve --port 4200 --host 0.0.0.0 --poll 1
+# Stage 2: Serve app with nginx server
+FROM nginx:latest
+COPY --from=build /usr/local/app/dist/festival-planner /usr/share/nginx/html
+EXPOSE 80
