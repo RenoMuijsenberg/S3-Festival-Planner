@@ -8,7 +8,17 @@ import {RouterModule} from "@angular/router";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FestivalDetailComponent} from './festival-detail/festival-detail.component';
-import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "@abacritt/angularx-social-login";
+import {
+    GoogleInitOptions,
+    GoogleLoginProvider,
+    SocialAuthServiceConfig,
+    SocialLoginModule
+} from "@abacritt/angularx-social-login";
+
+const googleLoginOptions: GoogleInitOptions = {
+    oneTapEnabled: false, // default is true
+    scopes: 'https://www.googleapis.com/auth/calendar.events'
+};
 
 @NgModule({
     declarations: [
@@ -29,11 +39,14 @@ import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from "@
         ]),
         SocialLoginModule,
     ],
-    providers: [
-        {provide: 'SocialAuthServiceConfig',
+    providers: [{
+        provide: 'SocialAuthServiceConfig',
             useValue: {
                 autoLogin: false,
-                providers: [{id: GoogleLoginProvider.PROVIDER_ID, provider: new GoogleLoginProvider('763111709962-r92u8nhe0inaujle0do74kl5c0hemno0.apps.googleusercontent.com')}],
+                providers: [{
+                    id: GoogleLoginProvider.PROVIDER_ID, 
+                    provider: new GoogleLoginProvider('763111709962-r92u8nhe0inaujle0do74kl5c0hemno0.apps.googleusercontent.com', googleLoginOptions)
+                }],
                 onError: (err) => {
                     console.error(err);
                 }

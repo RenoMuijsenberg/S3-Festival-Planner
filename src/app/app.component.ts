@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SocialAuthService} from "@abacritt/angularx-social-login";
+import {GoogleInitOptions, GoogleLoginProvider, SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,23 @@ import {SocialAuthService} from "@abacritt/angularx-social-login";
 })
 export class AppComponent {
   title = 'Festival planner';
-  user: any;
-  loggedIn: any;
-
+  user!: SocialUser;
+  private accessToken = '';
+  
   constructor(private authService: SocialAuthService) { }
 
-  ngOnInit() { 
+  getAccessToken(): void {
+    this.authService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(accessToken => {
+      this.accessToken = accessToken
+    });
+  }
+  
+  ngOnInit() {
     this.authService.authState.subscribe((user) => {
       this.user = user;
-      this.loggedIn = (user != null);
-    }); 
+      this.getAccessToken()
+    });
+    
+
   }
 }
