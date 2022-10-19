@@ -6,7 +6,6 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class GoogleService {
-
   constructor(private authService: SocialAuthService, private httpClient: HttpClient) { }
   
   private _accessToken: string = "";
@@ -16,7 +15,6 @@ export class GoogleService {
     this.authService.authState.subscribe({
       next: user => {
         this._user = user;
-        localStorage.setItem("user", JSON.stringify(user));
         this.getAccessToken();
       }
     });
@@ -25,30 +23,49 @@ export class GoogleService {
   getAccessToken(): void {
     this.authService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(accessToken => {
       this._accessToken = accessToken;
-      localStorage.setItem("accessToken", accessToken);
     });
   }
   
-  addToCalendar(): void {
+  addToCalendar(festivalName: string, festivalDate: string, festivalTime: string): void {
     if (!this._accessToken) return
-
+    
+    const date = festivalDate.split(" ")[2] + "-" + this.getMonthFromString(festivalDate.split(" ")[1]) + "-" + festivalDate.split(" ")[0];
+    const startDate = date + "T" +  festivalTime.split(" - ")[0] + ":00+01:00";
+    let endDate = "";
+    
+    if (festivalTime.split(" - ")[1].charAt(0) == "0") {
+      endDate = date + "T" +  "23:59:59+01:00";
+    }
+        
     const headers = {Authorization: `Bearer ${this._accessToken}`}
     const body = {
-      "end": {
-        "dateTime": "2022-10-20T15:30:00",
-        "timeZone": "Europe/Amsterdam"
-      },
+      "summary": festivalName,
       "start": {
-        "dateTime": "2022-10-20T15:00:00",
+        "dateTime": startDate,
         "timeZone": "Europe/Amsterdam"
       },
-      "summary": "Rebellion",
-      "description": "Test lalalala"
+      "end": {
+        "dateTime": endDate,
+        "timeZone": "Europe/Amsterdam"
+      }
     };
 
-    this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
-      next: () => alert("Successfully added to calendar"),
-      error: err => console.log(err)
-    });
+    // this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
+    //   next: () => alert("Successfully added to calendar"),
+    //   error: err => console.log(err)
+    // });
+  }
+
+  getMonthFromString(mon: string): string{
+    if (mon == "Okt" || mon == "okt") {
+      mon = "Oct"
+    }
+    
+    if (mon == "Mei" || mon == "mei") {
+      mon = "May"
+    }
+    
+    let date = new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
+    return date.toString()
   }
 }

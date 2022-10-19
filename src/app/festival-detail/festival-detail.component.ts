@@ -21,7 +21,7 @@ export class FestivalDetailComponent implements OnInit {
   }
   
   addToCalendar() {
-    this.googleService.addToCalendar();
+    this.googleService.addToCalendar(this.festival.festivalName, this.festival.festivalDate, this.festival.festivalTimeFrame);
   }
 
   ngOnInit() {
