@@ -31,11 +31,16 @@ export class GoogleService {
     
     const date = festivalDate.split(" ")[2] + "-" + this.getMonthFromString(festivalDate.split(" ")[1]) + "-" + festivalDate.split(" ")[0];
     const startDate = date + "T" +  festivalTime.split(" - ")[0] + ":00+01:00";
-    let endDate = "";
+    let endDate = date + "T" +  festivalTime.split(" - ")[1] + ":00+01:00";
     
     if (festivalTime.split(" - ")[1].charAt(0) == "0") {
-      endDate = date + "T" +  "23:59:59+01:00";
+      let newDate = new Date(date);
+      newDate.setDate(newDate.getDate() + 1)
+      endDate = newDate.toISOString().split("T")[0] + "T" + festivalTime.split(" - ")[1] + ":00+01:00";
     }
+    
+    console.log(startDate)
+    console.log(endDate)
         
     const headers = {Authorization: `Bearer ${this._accessToken}`}
     const body = {
