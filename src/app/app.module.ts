@@ -39,19 +39,20 @@ const googleLoginOptions: GoogleInitOptions = {
         ]),
         SocialLoginModule,
     ],
-    providers: [{
-        provide: 'SocialAuthServiceConfig',
-            useValue: {
-                autoLogin: false,
-                providers: [{
-                    id: GoogleLoginProvider.PROVIDER_ID, 
-                    provider: new GoogleLoginProvider('763111709962-r92u8nhe0inaujle0do74kl5c0hemno0.apps.googleusercontent.com', googleLoginOptions)
-                }],
-                onError: (err) => {
-                    console.error(err);
-                }
-            } as SocialAuthServiceConfig,
+    providers: [
+{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+        autoLogin: false,
+        providers: [{
+            id: GoogleLoginProvider.PROVIDER_ID, 
+            provider: new GoogleLoginProvider('763111709962-r92u8nhe0inaujle0do74kl5c0hemno0.apps.googleusercontent.com', googleLoginOptions)
+        }],
+        onError: (err) => {
+            console.error(err);
         }
+    } as SocialAuthServiceConfig,
+}
     ],
     bootstrap: [AppComponent]
 })
