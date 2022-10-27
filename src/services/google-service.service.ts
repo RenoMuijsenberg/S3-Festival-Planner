@@ -27,21 +27,40 @@ export class GoogleService {
   }
   
   addToCalendar(festivalName: string, festivalDate: string, festivalTime: string): void {
-    if (!this._accessToken) return
+    // if (!this._accessToken) return
     
-    const date = festivalDate.split(" ")[2] + "-" + this.getMonthFromString(festivalDate.split(" ")[1]) + "-" + festivalDate.split(" ")[0];
-    const startDate = date + "T" +  festivalTime.split(" - ")[0] + ":00+01:00";
-    let endDate = date + "T" +  festivalTime.split(" - ")[1] + ":00+01:00";
+    let startDate = "";
+    let endDate = "";
+    let year = festivalDate.split(" ")[2];
+    const month = this.getMonthFromString(festivalDate.split(" ")[1]);
+    const day = festivalDate.split(" ")[0];
+    let date = year + "-" + month + "-" + day;
+    const startTime = festivalTime.split(" - ")[0];
+    const endTime = festivalTime.split(" - ")[1];
+
+    if (year == undefined) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (new Date(date) < today) {
+          year = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear().toString()
+          date = year + "-" + month + "-" + day;
+        }
+    }
     
-    if (festivalTime.split(" - ")[1].charAt(0) == "0") {
+    startDate = date + "T" + startTime + ":00+01:00";
+    endDate = date + "T" + endTime + ":00+01:00";
+
+    if (endTime.charAt(0) == "0") {
       let newDate = new Date(date);
       newDate.setDate(newDate.getDate() + 1)
-      endDate = newDate.toISOString().split("T")[0] + "T" + festivalTime.split(" - ")[1] + ":00+01:00";
+      endDate = newDate.toISOString().split("T")[0] + "T" + endTime + ":00+01:00";
     }
     
     console.log(startDate)
     console.log(endDate)
         
+    
     const headers = {Authorization: `Bearer ${this._accessToken}`}
     const body = {
       "summary": festivalName,
@@ -60,8 +79,7 @@ export class GoogleService {
     //   error: err => console.log(err)
     // });
   }
-
-  getMonthFromString(mon: string): string{
+  protected getMonthFromString(mon: string): string{
     if (mon == "Okt" || mon == "okt") {
       mon = "Oct"
     }
