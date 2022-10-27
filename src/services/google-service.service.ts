@@ -57,10 +57,6 @@ export class GoogleService {
       endDate = newDate.toISOString().split("T")[0] + "T" + endTime + ":00+01:00";
     }
     
-    console.log(startDate)
-    console.log(endDate)
-        
-    
     const headers = {Authorization: `Bearer ${this._accessToken}`}
     const body = {
       "summary": festivalName,
