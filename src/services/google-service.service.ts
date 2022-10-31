@@ -27,10 +27,33 @@ export class GoogleService {
   }
   
   addToCalendar(festivalName: string, festivalDate: string, festivalTime: string): void {
-    // if (!this._accessToken) return
+    if (!this._accessToken) {
+      alert("Please login first");
+      return
+    }
     
-    let startDate = "";
-    let endDate = "";
+    const dates = this.formatDateForCalendar(festivalDate, festivalTime);
+    
+    const headers = {Authorization: `Bearer ${this._accessToken}`}
+    const body = {
+      "summary": festivalName,
+      "start": {
+        "dateTime": dates[0],
+        "timeZone": "Europe/Amsterdam"
+      },
+      "end": {
+        "dateTime": dates[1],
+        "timeZone": "Europe/Amsterdam"
+      }
+    };
+
+    this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
+      next: () => alert("Successfully added to calendar"),
+      error: err => console.log(err)
+    });
+  }
+  
+  protected formatDateForCalendar(festivalDate: string, festivalTime: string): string[] {
     let year = festivalDate.split(" ")[2];
     const month = this.getMonthFromString(festivalDate.split(" ")[1]);
     const day = festivalDate.split(" ")[0];
@@ -39,17 +62,11 @@ export class GoogleService {
     const endTime = festivalTime.split(" - ")[1];
 
     if (year == undefined) {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        if (new Date(date) < today) {
-          year = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear().toString()
-          date = year + "-" + month + "-" + day;
-        }
+      date = this.getNextYear(date) + "-" + month + "-" + day;
     }
-    
-    startDate = date + "T" + startTime + ":00+01:00";
-    endDate = date + "T" + endTime + ":00+01:00";
+
+    const startDate = date + "T" + startTime + ":00+01:00";
+    let endDate = date + "T" + endTime + ":00+01:00";
 
     if (endTime.charAt(0) == "0") {
       let newDate = new Date(date);
@@ -57,24 +74,21 @@ export class GoogleService {
       endDate = newDate.toISOString().split("T")[0] + "T" + endTime + ":00+01:00";
     }
     
-    const headers = {Authorization: `Bearer ${this._accessToken}`}
-    const body = {
-      "summary": festivalName,
-      "start": {
-        "dateTime": startDate,
-        "timeZone": "Europe/Amsterdam"
-      },
-      "end": {
-        "dateTime": endDate,
-        "timeZone": "Europe/Amsterdam"
-      }
-    };
-
-    // this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
-    //   next: () => alert("Successfully added to calendar"),
-    //   error: err => console.log(err)
-    // });
+    return [startDate, endDate];
   }
+  
+  protected getNextYear(date: string): string {
+    const today = new Date();
+    let year = "";
+    today.setHours(0, 0, 0, 0);
+    
+    if (new Date(date) < today) {
+      year = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).getFullYear().toString()
+    }
+    
+    return year;
+  }
+  
   protected getMonthFromString(mon: string): string{
     if (mon == "Okt" || mon == "okt") {
       mon = "Oct"
