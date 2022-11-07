@@ -16,8 +16,9 @@ import {
 } from "@abacritt/angularx-social-login";
 
 const googleLoginOptions: GoogleInitOptions = {
-    oneTapEnabled: false, // default is true
-    scopes: 'https://www.googleapis.com/auth/calendar.events'
+    oneTapEnabled: false,
+    scopes: 'https://www.googleapis.com/auth/calendar.events',
+    prompt: "none"
 };
 
 @NgModule({
