@@ -8,6 +8,11 @@
 * [Project description / inspiration](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki)
 * [Frontend framework choices](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/Front-end-choice#my-choice)
 * [User story's](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/User-story's) 
+* [Project POC's](https://github.com/RenoMuijsenberg/S3-POC/tree/main)
+
+### Project research
+* [Git flow research]()
+* [Cors research]()
 
 ### Project design
 * [Wireframes](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/Wireframes-website)
