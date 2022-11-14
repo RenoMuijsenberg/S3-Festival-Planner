@@ -12,7 +12,7 @@ export class FestivalService {
     return this.http.get<Festival[]>(environment.baseUrl + "api/festival/festivals");
   }
   
-  getSpecificFestival(festivalName: string): Observable<Festival> {
+  getSpecificFestival(festivalName: string| null): Observable<Festival> {
     return this.http.get<Festival>(environment.baseUrl + "api/festival/festivals/" + festivalName);
   }
 }

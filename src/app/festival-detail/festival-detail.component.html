@@ -21,14 +21,20 @@
         </div>
         <hr>
         <div class="row mt-2">
+            <p class="fw-normal mb-1 fs-5">Add to calendar:</p>
+            <div class="col-12" *ngFor="let date of dates">
+                <button class="btn btn-primary mb-1 w-100"  (click)="addToCalendar(date)">{{date}}</button>
+            </div>
+        </div>
+        <div class="row mt-2">
             <div class="col-12 col-md-6">
                 <div class="lineup">
-                    <h3 class="fw-normal fs-5">Line-up:</h3>
+                    <p class="fw-normal fs-5">Line-up:</p>
                     <p>No line-up known yet</p>
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <h3 class="fw-normal fs-5">Location:</h3>
+                <p class="fw-normal fs-5">Location:</p>
                 <a target="_blank" href="https://maps.google.com/maps/search/{{festival.festivalLocation}}">{{festival.festivalLocation}}</a>
             </div>
         </div>
