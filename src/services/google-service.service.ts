@@ -28,8 +28,13 @@ export class GoogleService {
   
   addToCalendar(festivalName: string, festivalDate: string, festivalTime: string): void {
     if (!this._accessToken) {
-      alert("Please login first");
-      return
+      return alert("Please login first!");
+    }
+    
+    const dateIsInPast = this.checkIfInPast(new Date(festivalDate))
+    
+    if (!dateIsInPast) {
+      return alert("Date is in the past!");
     }
     
     const dates = this.formatDateForCalendar(festivalDate, festivalTime);
@@ -70,11 +75,15 @@ export class GoogleService {
 
     if (endTime.charAt(0) == "0") {
       let newDate = new Date(date);
-      newDate.setDate(newDate.getDate() + 1)
+      newDate.setDate(newDate.getDate() + 1);
       endDate = newDate.toISOString().split("T")[0] + "T" + endTime + ":00+01:00";
     }
     
     return [startDate, endDate];
+  }
+  
+  protected checkIfInPast(date: Date): boolean {
+    return (date < new Date());
   }
   
   protected getNextYear(date: string): string {
