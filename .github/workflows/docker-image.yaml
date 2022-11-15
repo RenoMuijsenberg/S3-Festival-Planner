@@ -1,9 +1,9 @@
-﻿name: Push Image To DockerHub
+name: Push Image To DockerHub
 
 on:
   push:
-    branches:
-      - "**"
+    tags:
+      - stage-*
 
 jobs:
   push-image:
@@ -29,3 +29,23 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/festival-angular:latest
+          
+  deploy:
+    needs: push-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v3
+        
+      - name: Get tag name
+        uses: olegtarasov/get-tag@v2
+        
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          
+      - name: Provision Droplet and deploy container
+        run: doctl compute droplet create "$GIT_TAG_NAME" --image docker-18-04 --size s-1vcpu-1gb --region default-ams3 --user-data-file deploy.sh --wait
+        
+        
