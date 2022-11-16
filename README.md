@@ -13,7 +13,7 @@ You are viewing a project that is part of the 'Festival planner' application. Th
 
 ### Project research
 * [Git flow research]()
-* [Cors research]()
+* [Cors research](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/CORS-research)
 
 ### Project design
 * [Wireframes](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/Wireframes-website)
