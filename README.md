@@ -3,6 +3,7 @@
 [![SonarCloud Quality Scan](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/sonar-cloud.yaml/badge.svg)](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/actions/workflows/sonar-cloud.yaml)
 
 # FestivalPlanner
+You are viewing a project that is part of the 'Festival planner' application. The goal of the 'Festival planner' application is to quickly view what festival are upcoming and be able to add them to your Google calendar with just the press of a button. This project is the UI for the application, it is used to view the festival data.
 
 ### Project documentation
 * [Project description / inspiration](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki)
@@ -26,7 +27,7 @@
 ### Project issues
 * [Issues](https://github.com/users/RenoMuijsenberg/projects/1)
 
-### Dependecy's
+### Loosly coupled dependecies
 * [Festival Service](https://github.com/RenoMuijsenberg/S3-Festival-Service)
 * [(Private) Web scrapper](https://github.com/RenoMuijsenberg/S3-Festival-Scrapper)
 
