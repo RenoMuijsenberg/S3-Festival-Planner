@@ -12,7 +12,7 @@ You are viewing a project that is part of the 'Festival planner' application. Th
 * [Project POC's](https://github.com/RenoMuijsenberg/S3-POC/tree/main)
 
 ### Project research
-* [Git flow research]()
+* [Git flow research](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/Git-Flow-research)
 * [Cors research](https://github.com/RenoMuijsenberg/S3-Festival-Planner-Angular/wiki/CORS-research)
 
 ### Project design
