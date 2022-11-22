@@ -11,7 +11,7 @@
 }
 
 .festival-date {
-  min-width: 7em;
+  min-width: 8em;
 }
 
 .card-animation {
@@ -38,6 +38,7 @@
   }
 
   .festival-title {
+    text-align: left;
     font-size: 1em;
     padding: 1em;
   }
