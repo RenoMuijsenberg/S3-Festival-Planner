@@ -49,9 +49,9 @@ export class GoogleService {
       }
     };
 
-    this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
-      next: () => alert("Successfully added to calendar"),
-      error: err => console.log(err)
-    });
+    // this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
+    //   next: () => alert("Successfully added to calendar"),
+    //   error: err => console.log(err)
+    // });
   }
 }

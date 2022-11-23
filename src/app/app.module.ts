@@ -18,7 +18,7 @@ import {
 const googleLoginOptions: GoogleInitOptions = {
     oneTapEnabled: false,
     scopes: 'https://www.googleapis.com/auth/calendar.events',
-    prompt: "none"
+    prompt: ""
 };
 
 @NgModule({
