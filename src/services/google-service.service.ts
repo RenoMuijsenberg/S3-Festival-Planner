@@ -36,8 +36,8 @@ export class GoogleService {
     }
     
     const dates = this.dateHelper.formatDateForCalendar(festivalDate, festivalTime);
-    const headers = {Authorization: `Bearer ${this._accessToken}`}
-    const body = {
+
+    this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
       "summary": festivalName,
       "start": {
         "dateTime": dates[0],
@@ -47,11 +47,12 @@ export class GoogleService {
         "dateTime": dates[1],
         "timeZone": "Europe/Amsterdam"
       }
-    };
-
-    // this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', body,{headers}).subscribe({
-    //   next: () => alert("Successfully added to calendar"),
-    //   error: err => console.log(err)
-    // });
+    },{
+      headers: {
+        Authorization: `Bearer ${this._accessToken}`
+      }}).subscribe({
+      next: () => alert("Successfully added to calendar"),
+      error: err => console.log(err)
+    });
   }
 }

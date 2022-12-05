@@ -1,11 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FestivalComponent } from './festival.component';
 
 describe('FestivalComponent', () => {
   let component: FestivalComponent;
-  let fixture: ComponentFixture<FestivalComponent>;
-
+  
   beforeEach(async () => {
     component = new FestivalComponent();
   });

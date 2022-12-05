@@ -1,6 +1,6 @@
 import { GoogleService } from './google-service.service';
 import {HttpClient} from "@angular/common/http";
-import {SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
+import {SocialAuthService} from "@abacritt/angularx-social-login";
 import {GoogleServiceDateHelperService} from "../helpers/google-service-date-helper.service";
 
 describe('GoogleService', () => {
