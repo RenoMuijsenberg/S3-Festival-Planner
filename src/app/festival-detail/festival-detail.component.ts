@@ -8,7 +8,6 @@ import {Festival} from "../../interfaces/festival.interface";
 @Component({
   selector: 'app-festival-detail',
   templateUrl: './festival-detail.component.html',  
-  styleUrls: ['./festival-detail.component.css']
 })
 export class FestivalDetailComponent implements OnInit {
   constructor(private festivalService: FestivalService, private route: ActivatedRoute, private googleService: GoogleService) {}
