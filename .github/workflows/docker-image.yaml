@@ -2,8 +2,7 @@ name: Push Image To DockerHub
 
 on:
   push:
-    tags:
-      - stage-*
+    branches: ["main", "dev"]
 
 jobs:
   push-image:
