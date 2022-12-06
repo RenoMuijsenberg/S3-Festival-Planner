@@ -1,15 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {Festival} from "../../interfaces/festival.interface.";
+import {Festival} from "../../interfaces/festival.interface";
 
 @Component({
-  selector: 'festival',
+  selector: 'app-festival',
   templateUrl: './festival.component.html',
   styleUrls: ['./festival.component.css']
 })
 export class FestivalComponent {
-  @Input() festivalData: any;
-
-  ngOnInit() {
-   console.log(this.festivalData)
-  }
+  @Input() festival!: Festival;
 }

@@ -9,3 +9,41 @@
 .min-width {
   min-width: 75px;
 }
+
+.festival-date {
+  min-width: 8em;
+}
+
+.card-animation {
+  background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #f6f1f1 50%, #f6f1f1 100%);
+  background-size: 300%;
+  transition: background-position .3s cubic-bezier(.47, .1, 1, .63), color .2s linear;
+  transition-delay: 0.0s, 0.15s;
+}
+
+.card-animation:hover {
+  cursor: pointer;
+  background-position: -50% 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .festival-date {
+    border-right: 1px solid black;
+    padding-right: 1em;
+    font-size: 0.75em;
+  }
+
+  .festival-information {
+    justify-content: flex-start!important;
+  }
+
+  .festival-title {
+    text-align: left;
+    font-size: 1em;
+    padding: 1em;
+  }
+  
+  .price-block {
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="container">
+    <div *ngIf="festival" class="card mt-4 p-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="important-information d-flex justify-content-between">
+                    <h1>{{ festival.festivalName }}</h1>
+                    <h2>{{ festival.festivalPrice }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <h2 class="fw-normal fs-5">{{festival.festivalTimeFrame}}</h2>
+            </div>
+            <div class="col-12 col-md-4 text-md-center">
+                <h2 class="fw-normal fs-5">{{festival.festivalDate}}</h2>
+            </div>
+            <div class="col-12 col-md-4 text-md-end">
+                <h2 class="fw-normal fs-5">{{festival.festivalDay}}</h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+            <p class="fw-normal mb-1 fs-5">Add to calendar:</p>
+            <div class="col-12" *ngFor="let date of dates">
+                <button class="btn btn-primary mb-1 w-100"  (click)="addToCalendar(date)">{{date}}</button>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 col-md-6">
+                <div class="lineup">
+                    <p class="fw-normal fs-5">Line-up:</p>
+                    <p>No line-up known yet</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <p class="fw-normal fs-5">Location:</p>
+                <a target="_blank" href="https://maps.google.com/maps/search/{{festival.festivalLocation}}">{{festival.festivalLocation}}</a>
+            </div>
+        </div>
+    </div>
+</div>

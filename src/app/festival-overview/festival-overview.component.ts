@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
-import {HttpClient } from '@angular/common/http'
+import {Component, OnInit} from '@angular/core';
+import {FestivalService} from "../../services/festival.service";
+
+
 
 @Component({
-  selector: 'festival-overview',
+  selector: 'app-festival-overview',
   templateUrl: './festival-overview.component.html',
   styleUrls: ['./festival-overview.component.css']
 })
-export class FestivalOverviewComponent {
-  constructor(private http: HttpClient) {}
-
-  readonly ROOT_FESTIVAL_SERVICE_URL = "http://localhost:5104/";
-
+export class FestivalOverviewComponent implements OnInit {
+  constructor(private service: FestivalService) {}
+  
   festivals: any;
 
   getFestivals() {
-    this.festivals = this.http.get(this.ROOT_FESTIVAL_SERVICE_URL + "api/festival/festivals")
+    this.festivals = this.service.getFestivals();
   }
 
   ngOnInit() {
