@@ -1,5 +1,4 @@
 import { FestivalService } from './festival.service';
-import {HttpClient} from "@angular/common/http";
 import {Festival} from "../interfaces/festival.interface";
 import {of} from "rxjs";
 import {FestivalRepository} from "../repository/festival.repository";
