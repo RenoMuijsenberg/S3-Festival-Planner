@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {GoogleLoginProvider, SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
-import {HttpClient} from "@angular/common/http";
 import {GoogleServiceDateHelperService} from "../helpers/google-service-date-helper.service";
+import {GoogleRepository} from "../repository/google.repository";
 
 @Injectable({providedIn: 'root'})
 export class GoogleService {
-  constructor(private authService: SocialAuthService, private httpClient: HttpClient, private dateHelper: GoogleServiceDateHelperService) { }
+  constructor(private authService: SocialAuthService, private dateHelper: GoogleServiceDateHelperService, private repository: GoogleRepository) { }
   
   private _accessToken: string = "";
   private _user: SocialUser = new SocialUser();
@@ -37,22 +37,6 @@ export class GoogleService {
     
     const dates = this.dateHelper.formatDateForCalendar(festivalDate, festivalTime);
 
-    this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
-      "summary": festivalName,
-      "start": {
-        "dateTime": dates[0],
-        "timeZone": "Europe/Amsterdam"
-      },
-      "end": {
-        "dateTime": dates[1],
-        "timeZone": "Europe/Amsterdam"
-      }
-    },{
-      headers: {
-        Authorization: `Bearer ${this._accessToken}`
-      }}).subscribe({
-      next: () => alert("Successfully added to calendar"),
-      error: err => console.log(err)
-    });
+    this.repository.addToCalendar(dates, festivalName, this._accessToken)
   }
 }

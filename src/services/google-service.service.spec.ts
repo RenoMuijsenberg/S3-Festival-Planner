@@ -1,17 +1,16 @@
 import { GoogleService } from './google-service.service';
-import {HttpClient} from "@angular/common/http";
 import {SocialAuthService} from "@abacritt/angularx-social-login";
 import {GoogleServiceDateHelperService} from "../helpers/google-service-date-helper.service";
+import {GoogleRepository} from "../repository/google.repository";
 
 describe('GoogleService', () => {
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let googleRepository: jasmine.SpyObj<GoogleRepository>;
   let authService: jasmine.SpyObj<SocialAuthService>;
   let dateHelper: jasmine.SpyObj<GoogleServiceDateHelperService>
   let service: GoogleService;
 
   beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj("HttpClient", ["post"]);
-    service = new GoogleService(authService, httpClientSpy, dateHelper)
+    service = new GoogleService(authService, dateHelper, googleRepository)
   });
 
   it('should be created', () => {
