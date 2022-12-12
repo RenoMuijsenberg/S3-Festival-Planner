@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SocialAuthService} from "@abacritt/angularx-social-login";
-import {GoogleService} from "../services/google-service.service";
+import {GoogleService} from "../services/google.service";
 
 @Component({
   selector: 'app-root',

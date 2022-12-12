@@ -5,7 +5,9 @@ import {HttpClient} from "@angular/common/http";
 export class GoogleRepository {
     constructor(private httpClient: HttpClient) { }
 
-    addToCalendar(dates: string[], festivalName: string, accessToken: string): void {
+    addToCalendar(dates: string[], festivalName: string, accessToken: string): boolean {
+        let success = false;
+
         this.httpClient.post('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
             "summary": festivalName,
             "start": {
@@ -22,9 +24,11 @@ export class GoogleRepository {
             }}).subscribe({
             next: () => {
                 alert("Successfully added to calendar!")
-                return true
             },
-            error: err => {return false}
+            error: () => success = false,
+            complete: () => success = true
         });
+
+        return success;
     }
 }
