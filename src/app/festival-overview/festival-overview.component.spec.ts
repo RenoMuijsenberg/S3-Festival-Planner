@@ -24,4 +24,9 @@ describe('FestivalOverviewComponent', () => {
   it('should have festival data',  () => {
     expect(component.festivals).not.toBeNull()
   });
+
+  it('should get festival data from called function',  () => {
+    const result = component.getFestivals();
+    expect(result).not.toBeNull();
+  });
 });

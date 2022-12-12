@@ -50,7 +50,7 @@ const googleLoginOptions: GoogleInitOptions = {
             provider: new GoogleLoginProvider('763111709962-r92u8nhe0inaujle0do74kl5c0hemno0.apps.googleusercontent.com', googleLoginOptions)
         }],
         onError: (err) => {
-            console.error(err);
+            console.error();
         }
     } as SocialAuthServiceConfig,
 }

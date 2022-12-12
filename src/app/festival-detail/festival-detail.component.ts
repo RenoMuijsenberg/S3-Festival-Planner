@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {FestivalService} from "../../services/festival.service";
-import {GoogleService} from "../../services/google-service.service";
+import {GoogleService} from "../../services/google.service";
 import {Festival} from "../../interfaces/festival.interface";
 
 

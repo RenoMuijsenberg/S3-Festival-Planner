@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Festival} from "../interfaces/festival.interface";
-import {environment} from "../environments/environment";
+import {FestivalRepository} from "../repository/festival.repository";
 
 @Injectable({providedIn: 'root'})
 export class FestivalService {
-  constructor(private http: HttpClient) {}
-  
+  constructor(private repository: FestivalRepository) {}
+
   getFestivals(): Observable<Festival[]> {
-    return this.http.get<Festival[]>(environment.baseUrl + "api/festival/festivals");
+    return this.repository.getFestivals();
   }
   
   getSpecificFestival(festivalName: string| null): Observable<Festival> {
-    return this.http.get<Festival>(environment.baseUrl + "api/festival/festivals/" + festivalName);
+    return this.repository.getSpecificFestival(festivalName);
   }
 }

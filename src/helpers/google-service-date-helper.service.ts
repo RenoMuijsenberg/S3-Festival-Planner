@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable({providedIn: 'root'})
 export class GoogleServiceDateHelperService {
   formatDateForCalendar(festivalDate: string, festivalTime: string): string[] {
-    console.log(festivalDate, festivalTime)
     let year = festivalDate.split(" ")[2];
     const month = this.getMonthFromString(festivalDate.split(" ")[1]);
     const day = festivalDate.split(" ")[0];
@@ -11,7 +10,6 @@ export class GoogleServiceDateHelperService {
     const startTime = festivalTime.split(" - ")[0];
     const endTime = festivalTime.split(" - ")[1];
     let date = new Date(stringDate);
-    // stringDate = date.toLocaleString('default', { year: "numeric", month: "2-digit", day: "2-digit" })
     stringDate = date.toISOString().split("T")[0]
 
     let startDate = stringDate + "T" + startTime + ":00+01:00";
