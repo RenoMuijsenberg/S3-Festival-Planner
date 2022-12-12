@@ -51,6 +51,30 @@ describe('GoogleServiceDateHelperService', () => {
     
     expect(result).toEqual(answer)
   });
+
+  //Test if given textual month gives back correct number of month
+  //Will be equal
+  it('should give correct number of month "Mei"', function () {
+    const date: string = "mei"
+    const result: string = service.getMonthFromString(date);
+
+    const date2: string = "Mei"
+    const result2: string = service.getMonthFromString(date2);
+
+    expect(result && result2).toEqual("5")
+  });
+
+  //Test if given textual month gives back correct number of month
+  //Will be equal
+  it('should give correct number of month "Okt"', function () {
+    const date: string = "okt"
+    const result: string = service.getMonthFromString(date);
+
+    const date2: string = "Okt"
+    const result2: string = service.getMonthFromString(date2);
+
+    expect(result && result2).toEqual("10")
+  });
   
   //Test if date is correctly formatted by function
   //Will be equal
