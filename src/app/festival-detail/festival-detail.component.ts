@@ -38,12 +38,10 @@ export class FestivalDetailComponent implements OnInit {
     const diff = Math.ceil((newEnd.getTime() - newStart.getTime()) / (1000 * 3600 * 24));
     
     for (let i = 0; i <= diff; i++) {
-      dates.push(newStart.toLocaleString('default', { day: '2-digit', month: 'short' }) + " " + newStart.getFullYear())
+      dates.push(newStart.toLocaleString('en-GB', { day: '2-digit', month: 'short' }) + " " + newStart.getFullYear())
       newStart.setDate(newStart.getDate() + 1)
     }
-    
-    console.log(dates)
-    
+
     this.dates = dates;
   };
   
